@@ -464,7 +464,7 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() { // from class: com.example.firstapp.ActivityMain.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    scrollViewStatus.fullScroll(TransportMediator.KEYCODE_MEDIA_RECORD);
+                    scrollViewStatus.fullScroll(ScrollView.FOCUS_DOWN);
                 }
             });
             try {
@@ -481,7 +481,7 @@ public class MainActivity extends AppCompatActivity {
                     Date d = new Date(System.currentTimeMillis() - NxtMain.starttime);
                     String x = String.valueOf(sdf.format((java.util.Date) d)) + "0000";
                     textViewTime.setText(x.substring(1, 8));
-                    scrollViewStatus.fullScroll(TransportMediator.KEYCODE_MEDIA_RECORD);
+                    scrollViewStatus.fullScroll(ScrollView.FOCUS_DOWN);
                 }
             });
             try {
@@ -493,7 +493,7 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() { // from class: com.example.firstapp.ActivityMain.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    scrollViewStatus.fullScroll(TransportMediator.KEYCODE_MEDIA_RECORD);
+                    scrollViewStatus.fullScroll(ScrollView.FOCUS_DOWN);
                 }
             });
             try {
