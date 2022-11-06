@@ -7,6 +7,6 @@ https://rebrickable.com/mocs/MOC-10876/hitchhiker/nxt-cube-machine-cube-solver/#
 
 Hitchhiker, the original creator of the MOC, was good enough to supply me with his original source code for the Android APK.
 
-All original source is the work of Hitchhiker.
+All original source is the work of Hitchhiker (a.k.a. Manfred Matuszek).
 
 The NxtCubeMachineCode.zip file is Hitchhiker's original source archive.
