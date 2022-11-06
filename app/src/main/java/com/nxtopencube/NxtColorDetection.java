@@ -166,7 +166,7 @@ public class NxtColorDetection {
         Log.d("COLOURS:","D:" + dcnt);
         Log.d("COLOURS:","L:" + lcnt);
         Log.d("COLOURS:","B:" + bcnt);
-        //if (ucnt != 9 || rcnt != 9 || fcnt != 9 || dcnt != 9 || lcnt != 9 || bcnt != 9) {
+        if (ucnt != 9 || rcnt != 9 || fcnt != 9 || dcnt != 9 || lcnt != 9 || bcnt != 9) {
             interim_report = String.valueOf(interim_report) + "Second Iteration:\r\n";
             //The second iteration is going to run every cubie through the color detection.
             for (int side_index = 0; side_index < 6; side_index++) {
@@ -197,7 +197,7 @@ public class NxtColorDetection {
                 }
                 interim_report = String.valueOf(text4) + "\r\n";
             }
-        //}
+        }
         //
         // Count the numbers of each cubie colours
         ucnt = 0;
