@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     int photocount = 0;
     char[] filenames = {'U', 'D', 'L', 'R', 'B', 'F'};
     final Context context = this;
+    //Adding a comment to see if Git is working.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
