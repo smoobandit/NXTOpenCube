@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:id="@+id/tableLayoutSettings" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TableRow android:gravity="center" android:id="@+id/tableRowSet1" android:background="@drawable/customborder1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center" android:id="@+id/textViewTitle1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings_title1" android:color="#8080ff" style="@style/TitleText"/>
+    </TableRow>
+    <TableRow android:id="@+id/tableRowSet2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:id="@+id/textViewLabelNxt1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="6dp" android:text="@string/settings_labelnxt1" android:layout_weight="1"/>
+        <EditText android:id="@+id/editTextNxt1" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/value_nxtname1" android:ems="10" android:layout_weight="2" android:inputType="text"/>
+    </TableRow>
+    <TableRow android:id="@+id/tableRowSet3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:id="@+id/textViewLabelNxt2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="6dp" android:text="@string/settings_labelnxt2" android:layout_weight="1"/>
+        <EditText android:id="@+id/editTextNxt2" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/value_nxtname2" android:ems="10" android:layout_weight="2" android:inputType="text"/>
+    </TableRow>
+    <TableRow android:id="@+id/tableRowSet4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:id="@+id/textViewLabelProgname" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="6dp" android:text="@string/settings_labelprogram" android:layout_weight="1"/>
+        <EditText android:id="@+id/editTextProgname" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/value_progname" android:ems="10" android:layout_weight="2" android:inputType="text"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowSet5" android:background="@drawable/customborder1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center" android:id="@+id/textViewTitle2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings_title2" android:color="#8080ff" style="@style/TitleText"/>
+    </TableRow>
+    <TableRow android:id="@+id/tableRowSet6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:id="@+id/textViewLabelWaitOpen" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="6dp" android:text="@string/settings_labelwaitopen" android:layout_weight="1"/>
+        <EditText android:id="@+id/editTextWaitOpen" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/value_waitopen" android:ems="10" android:layout_weight="2" android:inputType="number"/>
+    </TableRow>
+    <TableRow android:id="@+id/tableRowSet7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:id="@+id/textViewLabelWaitClose" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="6dp" android:text="@string/settings_labelwaitclose" android:layout_weight="1"/>
+        <EditText android:id="@+id/editTextWaitClose" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/value_waitclose" android:ems="10" android:layout_weight="2" android:inputType="number"/>
+    </TableRow>
+    <TableRow android:id="@+id/tableRowSet8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:id="@+id/textViewLabelWaitTurn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="6dp" android:text="@string/settings_labelwaitturn" android:layout_weight="1"/>
+        <EditText android:id="@+id/editTextWaitTurn" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/value_waitturn" android:ems="10" android:layout_weight="2" android:inputType="number"/>
+    </TableRow>
+    <TableRow android:id="@+id/tableRowSet9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:id="@+id/textViewLabelWaitDoubleTurn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="6dp" android:text="@string/settings_labelwaitdoubleturn" android:layout_weight="1"/>
+        <EditText android:id="@+id/editTextWaitDoubleTurn" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/value_waitdoubleturn" android:ems="10" android:layout_weight="2" android:inputType="number"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowSet10" android:background="@drawable/customborder1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center" android:id="@+id/textViewTitle3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings_title3" android:color="#8080ff" style="@style/TitleText"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowSet11" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/buttonSettingsSave" android:background="@drawable/custombutton1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings_buttonsave" android:layout_weight="1" style="@style/ButtonText"/>
+    </TableRow>
+</TableLayout>

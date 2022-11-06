@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/menu_icon_48" android:id="@+id/action_menu" android:orderInCategory="100" android:title="@string/menutitle"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item android:id="@+id/menuitem_init" android:title="@string/menuitem_init"/>
+            <item android:id="@+id/menuitem_settings" android:title="@string/menuitem_settings"/>
+            <item android:id="@+id/menuitem_manual" android:title="@string/menuitem_manual"/>
+            <item android:id="@+id/menuitem_quit" android:title="@string/menuitem_quit"/>
+        </menu>
+    </item>
+</menu>
+<!--
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bookmark_menu"
+        android:title="@string/bookmark"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/save_menu"
+        android:title="@string/save"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/search_menu"
+        android:title="@string/search"
+        app:showAsAction="always" />
+    <item android:id="@+id/share_menu"
+        android:title="@string/share"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/delete_menu"
+        android:title="@string/delete"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/print_menu"
+        android:title="@string/print"
+        app:showAsAction="ifRoom" />
+</menu>
+-->

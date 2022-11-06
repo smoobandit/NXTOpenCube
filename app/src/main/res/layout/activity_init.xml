@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:id="@+id/tableLayoutInit" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TableRow android:gravity="center" android:id="@+id/tableRowInit1" android:background="@drawable/customborder1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center" android:id="@+id/textViewTitle1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_title1" android:color="#8080ff" style="@style/TitleText"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowInit2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/buttonInitConnection" android:background="@drawable/custombutton1" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/init_buttonconnection" android:layout_weight="1" style="@style/ButtonText"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowInit3" android:background="@drawable/customborder1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center" android:id="@+id/textViewTitle2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_title2" android:color="#8080ff" style="@style/TitleText"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowInit4" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/buttonInitStart" android:background="@drawable/custombutton1" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/init_buttonstart" android:layout_weight="1" style="@style/ButtonText"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowInit5" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/buttonInitStop" android:background="@drawable/custombutton1" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/init_buttonstop" android:layout_weight="1" style="@style/ButtonText"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowInit6" android:background="@drawable/customborder1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center" android:id="@+id/textViewTitle3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_title3" android:color="#8080ff" style="@style/TitleText"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowInit7" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/buttonInitLifter" android:background="@drawable/custombutton1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_buttonlifter" android:layout_weight="1" style="@style/ButtonText"/>
+    </TableRow>
+    <TableRow android:gravity="center" android:id="@+id/tableRowInit8" android:background="@drawable/customborder1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="2">
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center" android:id="@+id/textViewBottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_text" android:color="#8080ff" style="@style/ManfredsText"/>
+    </TableRow>
+</TableLayout>
