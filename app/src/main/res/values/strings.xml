@@ -91,6 +91,7 @@ Check paired devices and settings."</string>
     <string name="manu_liftplusvierzehn">+14</string>
     <string name="manu_liftminusvierzehn">-14</string>
 
+    <string name="solved_state">UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB</string>
     <string name="words_program">Program</string>
     <string name="words_started">started.</string>
     <string name="message_start">The Grippers must be closed and in an exactly vertical orientation.</string>

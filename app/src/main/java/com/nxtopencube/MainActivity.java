@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     int photocount = 0;
     char[] filenames = {'U', 'D', 'L', 'R', 'B', 'F'};
     final Context context = this;
-    //Adding a comment to see if Git is working.
+    //Set this to true to skip directly to colour detection based on files already on the phone.
+    boolean simulation = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -234,7 +235,10 @@ public class MainActivity extends AppCompatActivity {
                         textViewStatus.setText(((Object) textViewStatus.getText()) + NxtMain.cubeDefinition + "\r\n");
                     }
                 });
-                if (NxtMain.cubeDefinition != "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB") {
+                if (!NxtMain.cubeDefinition.equals(MainActivity.this.getString(R.string.solved_state))) {
+                    appendLog(NxtMain.cubeDefinition);
+                    appendLog("did not equal");
+                    appendLog(MainActivity.this.getString(R.string.solved_state));
                     Log.d("MAIN:", "Cube NOT solved. Starting Search");
                     CsSearch search = new CsSearch();
                     Log.d("MAIN:", "Created searcher.");
@@ -245,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
                         //This is the error being thrown.  Problem is down in the CsCubieCube.java verify method.
                         //Failing with this cubeDefinition:
                         //BLUFURFLBDUFURBLBURDRDFLUBDBUFRDLDRLUUDFLRLBRRFLDBDFFB
+                        //Update: hilariously that is a false definition.  My cube had an inverted corner and was unsolvable.
                         if (!NxtMain.stop) {
                             runOnUiThread(new Runnable() { // from class: com.example.firstapp.ActivityMain.19
                                 @Override // java.lang.Runnable
@@ -427,9 +432,12 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.startNxtMachine();
                     return;
                 }
-                Intent nextScreen = new Intent(MainActivity.this.getApplicationContext(), ActivityInit.class);
-                MainActivity.this.startActivity(nextScreen);
-                //MainActivity.this.startNxtMachine();
+                if (simulation) {
+                    MainActivity.this.startNxtMachine();
+                } else {
+                    Intent nextScreen = new Intent(MainActivity.this.getApplicationContext(), ActivityInit.class);
+                    MainActivity.this.startActivity(nextScreen);
+                }
                 return;
             }
         });
@@ -439,8 +447,11 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() { // from class: com.example.firstapp.ActivityMain.4
             @Override // java.lang.Runnable
             public void run() {
-                //MainActivity.this.lastStep();
-                MainActivity.this.firstStep();
+                if (simulation) {
+                    MainActivity.this.lastStep();
+                } else {
+                    MainActivity.this.firstStep();
+                }
             }
         }).start();
         new Thread(new Runnable() { // from class: com.example.firstapp.ActivityMain.5

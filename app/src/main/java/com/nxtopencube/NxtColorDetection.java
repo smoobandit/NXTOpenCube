@@ -15,8 +15,11 @@ import java.lang.reflect.Array;
 
 /* loaded from: classes.dex */
 public class NxtColorDetection {
-    private int[] xstart = {535, 770, 1075, 820, 1125, 1500, 1150, 1530, 1980};
-    private int[] ystart = {1370, 940, 425, 1825, 1430, 900, 2320, 1990, 1480};
+    //Recalibrated this to my cube/grippers.
+    private int[] xstart = {650, 900, 1225, 900, 1200, 1550, 1160, 1540, 1960};
+    private int[] ystart = {1300, 880, 425, 1720, 1312, 840, 2220, 1885, 1390};
+    //private int[] xstart = {535, 770, 1075, 820, 1125, 1500, 1150, 1530, 1980};
+    //private int[] ystart = {1370, 940, 425, 1825, 1430, 900, 2320, 1990, 1480};
     //Colours is simple.  Each side(6)/cubie(9) has RGB(3) values.
     private int[][][] colors = (int[][][]) Array.newInstance(Integer.TYPE, 6, 9, 3);
     //Distance is not as simple.  I THINK that each side/cubie has a distance from the centre colour of each side's centre cubie(6)
@@ -284,6 +287,80 @@ public class NxtColorDetection {
     }
 
     private String getColor (int r, int g, int b) {
+        //We will ALWAYS have one of r,g,b set to 100 as a result of the normalisation code.
+        //So we can start by splitting the logic into dealing with 100.
+        //On My Cube, 100 in Red is either red or orange.
+        //100 in blue is either blue or white.
+        //100 in green is either green or yellow.
+        //This is not an exact science, as the green values for white can be as high as 094
+        //As predicted, that was wrong.  We need a white test first for r+g+b
+        String retval = "---";
+        if ((r + g + b) > 260) {return "White";}  //This is much better
+        if (r==100){
+            //distinguish between red and orange
+            //This is a really complicated one.  It is hard to tell the difference,
+            // but there is a useful clue.  It is the ratio of g/b.
+            //For my cube, if g/b is < 1 then it is red.
+            //If g/b is > 1 then it is orange.
+            //The exception is if g+b < 10.
+            float temp_g = g;
+            float temp_b = b;
+            if (temp_b == 0) {temp_b = 1;} //want to avoid dividing by zero
+            if (temp_g / temp_b > 1) {
+                //probably orange, unless g value is very small
+                if(temp_g > 15) {
+                    retval  = "Orange";
+                    Log.d("COLOUR:", "Selected Orange for:" + r + "-" + g + "-" +b);
+                } else {
+                    //g is too small to be confident in the ratio test
+                    retval  = "Red";
+                }
+            } else {
+                Log.d("COLOUR:", "temp_g / temp_b = " + temp_g / temp_b);
+                //Ratio is less than or equal to one
+                retval  = "Red";
+            }
+        }
+        if(g==100){
+            //distinguish between green and yellow
+            //In virtually every test, with g = 100, r = 000.  The exception was r = 11,
+            // which was sandwiched between oranges.  Bleed?  White balance?
+            //The b value varied from 6 to 39.
+            //For g = 100, but the colour is Yellow, the r varied from 56 to 90
+            //The b varied from 0 to 24.
+            //There is significant cross over with the B value, so we cannot use that.
+            //Instead, we will focus on the r value.
+            //NOPE - I have found a R: 074, G: 100, B: 024 which is Green
+            //It is right next to a R: 082, G: 100, B: 011 which is Yellow
+            //MIGHT be a misaligned cube for the photo.  Averaging RED/GREEN?
+            //Yep - detection point right on the border of two cubies.
+            if(r <= 25){
+                retval  = "Green";
+            } else if (r >= 50 && r <=95) {
+                retval  = "Yellow";
+            } else {
+                ////Detection has failed?
+            }
+
+        }
+        if(b==100){
+            //distinguish between blue and white
+            //In my testing, a true blue has a combined rg of 16 to 67
+            //A white has combined rg of 129 to 182
+            if((r + g) > 10 && (r + g) < 75) {
+                retval  = "Blue";
+            } else if ((r + g) > 120 && (r + g) < 190) {
+                retval  = "White";
+            } else {
+                //Detection has failed?
+            }
+
+
+        }
+        return retval;
+    }
+
+    /*private String getColor (int r, int g, int b) {
         String retval = "---";
         if (r < 10 && g > 15 && g < 95 && b > 99) { retval = "Blue"; }
         if (r > 50 && g > 99 && b < 30) { retval = "Yellow"; }  //orig b: 10
@@ -292,7 +369,7 @@ public class NxtColorDetection {
         if (r > 99 && g < 10 && b < 90) { retval = "Red"; }  //orig g: 10
         if (r > 20 && g > 20 && b > 90) { retval = "White"; } //orig b: 99
         return retval;
-    }
+    }*/
     /*private String getColor(int r, int g, int b) {
         String retval = "---";
         if (r < 10 && g > 15 && g < 95 && b > 99) {
