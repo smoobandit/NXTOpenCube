@@ -14,5 +14,7 @@ The NxtCubeMachineCode.zip file is Hitchhiker's original source archive.
 SOme other interesting projects on GitHub are:
 
 https://github.com/amarghosh/rubiks-cube
+
 https://github.com/cjurjiu/RubikDetector-Android
+
 https://github.com/yihjian/AndroidRubikSolver
