@@ -57,6 +57,7 @@ public class NxtColorDetection {
                 int b = 0;
                 //Scan through a 25x25 pixel square around the points defined in xstart/ystart
                 //TODO - for debugging purposes, can we draw a square on the bitmap showing the detection area?
+                //See commented class at foot of this class for example code.  yet to evalute.
                 for (int x = (this.xstart[cubie_index] - 50) / 4; x < (this.xstart[cubie_index] + 50) / 4; x++) {
                     for (int y = (this.ystart[cubie_index] - 50) / 4; y < (this.ystart[cubie_index] + 50) / 4; y++) {
                         //Keep a running tally of how many pixels we have scanned
@@ -500,3 +501,36 @@ public class NxtColorDetection {
 
     }
 }
+
+/*import java.awt.Color;
+import java.awt.Stroke;
+import java.awt.BasicStroke;
+import java.awt.Paint;
+import java.awt.Rectangle;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.File;
+
+public class Drawer{
+	public static void main(String[] args) throws Exception{
+		//Create an in memory Image
+		BufferedImage img = new BufferedImage(100, 10, BufferedImage.TYPE_INT_ARGB);
+
+
+		//Grab the graphics object off the image
+		Graphics2D graphics = img.createGraphics();
+
+		Color color = new Color(50,50,50);
+		Stroke stroke = new BasicStroke(1f);
+
+		//graphics.setStroke(stroke);
+		graphics.setPaint(color);
+
+		graphics.fill(new Rectangle(0,0,100,10));
+
+
+		File outputfile = new File("saved.png");
+		ImageIO.write(img, "png", outputfile);
+	}
+}*/
