@@ -18,3 +18,5 @@ https://github.com/amarghosh/rubiks-cube
 https://github.com/cjurjiu/RubikDetector-Android
 
 https://github.com/yihjian/AndroidRubikSolver
+
+https://github.com/laoliveira/Rubiks-Cube-Detection
