@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     final Context context = this;
     //Set this to true to skip directly to colour detection based on files already on the phone.
     boolean simulation = false;
+    boolean logging = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -577,12 +579,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void appendLog(String text)
     {
-        File logFile = new File("sdcard/log.txt");
-        if (!logFile.exists())
-        {
+        if(this.logging){
+            File logFile = new File("sdcard/log.txt");
+            if (!logFile.exists())
+            {
+                try
+                {
+                    logFile.createNewFile();
+                }
+                catch (IOException e)
+                {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
             try
             {
-                logFile.createNewFile();
+                //BufferedWriter for performance, true to set append to file flag
+                BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
+                buf.append(text);
+                buf.newLine();
+                buf.close();
             }
             catch (IOException e)
             {
@@ -590,19 +607,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        try
-        {
-            //BufferedWriter for performance, true to set append to file flag
-            BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
-            buf.append(text);
-            buf.newLine();
-            buf.close();
-        }
-        catch (IOException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

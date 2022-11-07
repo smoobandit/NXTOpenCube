@@ -15,6 +15,7 @@ import java.lang.reflect.Array;
 
 /* loaded from: classes.dex */
 public class NxtColorDetection {
+    boolean logging = true;
     //Recalibrated this to my cube/grippers.
     private int[] xstart = {650, 900, 1225, 900, 1200, 1550, 1160, 1540, 1960};
     private int[] ystart = {1300, 880, 425, 1720, 1312, 840, 2220, 1885, 1390};
@@ -55,6 +56,7 @@ public class NxtColorDetection {
                 int g = 0;
                 int b = 0;
                 //Scan through a 25x25 pixel square around the points defined in xstart/ystart
+                //TODO - for debugging purposes, can we draw a square on the bitmap showing the detection area?
                 for (int x = (this.xstart[cubie_index] - 50) / 4; x < (this.xstart[cubie_index] + 50) / 4; x++) {
                     for (int y = (this.ystart[cubie_index] - 50) / 4; y < (this.ystart[cubie_index] + 50) / 4; y++) {
                         //Keep a running tally of how many pixels we have scanned
@@ -467,12 +469,27 @@ public class NxtColorDetection {
 
     public void appendLog(String text)
     {
-        File logFile = new File("sdcard/log.txt");
-        if (!logFile.exists())
-        {
+        if(this.logging) {
+            File logFile = new File("sdcard/log.txt");
+            if (!logFile.exists())
+            {
+                try
+                {
+                    logFile.createNewFile();
+                }
+                catch (IOException e)
+                {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
             try
             {
-                logFile.createNewFile();
+                //BufferedWriter for performance, true to set append to file flag
+                BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
+                buf.append(text);
+                buf.newLine();
+                buf.close();
             }
             catch (IOException e)
             {
@@ -480,18 +497,6 @@ public class NxtColorDetection {
                 e.printStackTrace();
             }
         }
-        try
-        {
-            //BufferedWriter for performance, true to set append to file flag
-            BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
-            buf.append(text);
-            buf.newLine();
-            buf.close();
-        }
-        catch (IOException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
     }
 }
