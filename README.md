@@ -28,3 +28,7 @@ Includes code from this project:
 https://github.com/cs0x7f/min2phase
 
 That has been updated since - would be good to include the updated code.
+
+Main algorithm in use is:
+
+https://github.com/hkociemba/RubiksCube-TwophaseSolver
