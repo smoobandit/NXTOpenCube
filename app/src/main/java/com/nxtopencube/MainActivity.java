@@ -332,6 +332,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String get_error_message(String solve_result) {
+        appendLog("Error message:" + solve_result);
+        appendLog("Error Char:" + solve_result.charAt(6));
         switch (solve_result.charAt(6)){
             case 1: return MainActivity.this.getString(R.string.error1);
             case 2: return MainActivity.this.getString(R.string.error2);
@@ -398,9 +400,13 @@ public class MainActivity extends AppCompatActivity {
                     textViewStatus.setText(((Object) textViewStatus.getText()) + MainActivity.this.getString(R.string.status_takecube) + "\r\n");
                 }
             });
-            NxtMain.connNxtSM1.sendCommand("LIFT(-13)");
+/*            NxtMain.connNxtSM1.sendCommand("LIFT(-13)");
             NxtMain.connNxtSM1.sendCommand("CLOSE(NS,1,1)");
             NxtMain.connNxtSM1.sendCommand("LIFT(-11)");
+            NxtMain.connNxtSM1.sendCommand("TURN(EW,-1,1)");*/
+            NxtMain.connNxtSM1.sendCommand("LIFT(-11)");
+            NxtMain.connNxtSM1.sendCommand("CLOSE(NS,1,1)");
+            NxtMain.connNxtSM1.sendCommand("LIFT(-13)");
             NxtMain.connNxtSM1.sendCommand("TURN(EW,-1,1)");
             NxtMain.lifterStatus = 0;
             if (!NxtMain.stop) {

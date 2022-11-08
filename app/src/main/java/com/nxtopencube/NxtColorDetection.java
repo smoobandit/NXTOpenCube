@@ -17,7 +17,7 @@ import java.lang.reflect.Array;
 public class NxtColorDetection {
     boolean logging = true;
     //Recalibrated this to my cube/grippers.
-    private int[] xstart = {650, 900, 1225, 900, 1200, 1550, 1160, 1540, 1960};
+    private int[] xstart = {600, 850, 1225, 850, 1200, 1550, 1160, 1540, 1960};
     private int[] ystart = {1300, 880, 425, 1720, 1312, 840, 2220, 1885, 1390};
     //private int[] xstart = {535, 770, 1075, 820, 1125, 1500, 1150, 1530, 1980};
     //private int[] ystart = {1370, 940, 425, 1825, 1430, 900, 2320, 1990, 1480};
