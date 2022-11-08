@@ -59,7 +59,7 @@ public class NxtConnectBluetooth extends Thread {
         }
     }
 
-    public boolean startProgram(String text) {
+    /*public boolean startProgram(String text) {
         char[] charArray;
         int byteslength = text.length();
         ByteBuffer buffer = ByteBuffer.allocate(byteslength + 8);
@@ -78,9 +78,51 @@ public class NxtConnectBluetooth extends Thread {
             cancel();
             return false;
         }
+    }*/
+    public boolean startProgram(String text) {
+        boolean retval = false;
+        ByteBuffer buffer;
+        int byteslength = text.length();
+
+        buffer = ByteBuffer.allocate(byteslength + 8);
+        buffer.order(ByteOrder.LITTLE_ENDIAN);
+        buffer.putShort((short) (byteslength + 6));
+        buffer.put((byte) 0x80);
+        buffer.put((byte) 0x00);
+
+        for (char c : text.toCharArray()) {buffer.put((byte) c);}
+
+        buffer.put((byte) 0x00);
+
+        try {
+            nxtOutputStream.write(buffer.array());
+            retval = true;
+        } catch (IOException writeException) {
+            cancel();
+        }
+        return retval;
     }
 
     public boolean stopProgram() {
+        boolean retval = false;
+        ByteBuffer buffer;
+
+        buffer = ByteBuffer.allocate(8);
+        buffer.order(ByteOrder.LITTLE_ENDIAN);
+        buffer.putShort((short) (6));
+        buffer.put((byte) 0x80);
+        buffer.put((byte) 0x01);
+        buffer.put((byte) 0x00);
+
+        try {
+            nxtOutputStream.write(buffer.array());
+            retval = true;
+        } catch (IOException writeException) {
+            cancel();
+        }
+        return retval;
+    }
+/*    public boolean stopProgram() {
         ByteBuffer buffer = ByteBuffer.allocate(8);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
         buffer.putShort((short) 6);
@@ -94,7 +136,7 @@ public class NxtConnectBluetooth extends Thread {
             cancel();
             return false;
         }
-    }
+    }*/
 
     public boolean sendCommand(@NonNull String text) {
         boolean retval = false;

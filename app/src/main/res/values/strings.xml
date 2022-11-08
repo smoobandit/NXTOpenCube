@@ -18,8 +18,8 @@ V1 November 2022"</string>
     <string name="menuitem_quit">Quit</string>
     <string name="status_start">NXT Cube Machine Started.</string>
     <string name="status_lifterinit">Lifter initialised.</string>
-    <string name="status_lifterup">Lifter Up.</string>
-    <string name="status_takecube">"Picked up Rubik's Cube."</string>
+    <string name="status_lifterup">Raising lifter.</string>
+    <string name="status_takecube">"Grabbing the Rubik's Cube."</string>
     <string name="status_startposition">Reached start position.</string>
     <string name="status_photossaved">Saved photos.</string>
     <string name="status_colorsdetected">Colors (Cube Definition):</string>
@@ -38,7 +38,7 @@ V1 November 2022"</string>
     <string name="dialog_bluetoothproblem">"Could not find the NXT blocks!
 
 Check paired devices and settings."</string>
-    <string name="dialog_cubetitle">Nxt CubeMachine</string>
+    <string name="dialog_cubetitle">Nxt OpenCube</string>
     <string name="dialog_lifter">Lifter position?</string>
     <string name="dialog_lifterbottom">Bottom</string>
     <string name="dialog_liftertop">Top</string>
