@@ -20,3 +20,11 @@ https://github.com/cjurjiu/RubikDetector-Android
 https://github.com/yihjian/AndroidRubikSolver
 
 https://github.com/laoliveira/Rubiks-Cube-Detection
+
+https://github.com/nemosupremo/Android-Rubik-s-Cube-Solver
+
+Includes code from this project:
+
+https://github.com/cs0x7f/min2phase
+
+That has been updated since - would be good to include the updated code.
