@@ -31,6 +31,7 @@ V1 November 2022"</string>
     <string name="status_canceled">Program aborted.</string>
     <string name="status_stopped">Program stopped.</string>
     <string name="status_closed">Program closed.</string>
+    <string name="status_simulation">Simulated Solve...</string>
     <string name="dialog_bluetoothtitle">Bluetooth connection</string>
     <string name="dialog_bluetooth">Establishing Bluetooth connection...</string>
     <string name="dialog_bluetoothnoconn">The Bluetooth connection could not be established!</string>

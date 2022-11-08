@@ -355,27 +355,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //Define our waits for cube manipulation
-        NxtMain.connNxtSM1.sendCommand("SETWAIT(OPEN," + NxtMain.waitOpen + ")");
-        NxtMain.connNxtSM1.sendCommand("SETWAIT(CLOSE," + NxtMain.waitClose + ")");
-        NxtMain.connNxtSM1.sendCommand("SETWAIT(TURN," + NxtMain.waitTurn + ")");
-        NxtMain.connNxtSM1.sendCommand("SETWAIT(DOUBLETURN," + NxtMain.waitDoubleTurn + ")");
-        NxtMain.connNxtSM2.sendCommand("SETWAIT(TURN," + NxtMain.waitTurn + ")");
-        NxtMain.connNxtSM2.sendCommand("SETWAIT(DOUBLETURN," + NxtMain.waitDoubleTurn + ")");
-        if (!NxtMain.stop) {
-            NxtMain.runtime = true;
-            NxtMachine machine = new NxtMachine();
-            machine.moveCube(solution);
-            NxtMain.runtime = false;
+        if(!simulation){
+            NxtMain.connNxtSM1.sendCommand("SETWAIT(OPEN," + NxtMain.waitOpen + ")");
+            NxtMain.connNxtSM1.sendCommand("SETWAIT(CLOSE," + NxtMain.waitClose + ")");
+            NxtMain.connNxtSM1.sendCommand("SETWAIT(TURN," + NxtMain.waitTurn + ")");
+            NxtMain.connNxtSM1.sendCommand("SETWAIT(DOUBLETURN," + NxtMain.waitDoubleTurn + ")");
+            NxtMain.connNxtSM2.sendCommand("SETWAIT(TURN," + NxtMain.waitTurn + ")");
+            NxtMain.connNxtSM2.sendCommand("SETWAIT(DOUBLETURN," + NxtMain.waitDoubleTurn + ")");
+            if (!NxtMain.stop) {
+                NxtMain.runtime = true;
+                NxtMachine machine = new NxtMachine();
+                machine.moveCube(solution);
+                NxtMain.runtime = false;
+                runOnUiThread(new Runnable() { // from class: com.example.firstapp.ActivityMain.21
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        textViewStatus.setText(((Object) textViewStatus.getText()) + "\r\n" + MainActivity.this.getString(R.string.status_cubemoved) + "\r\n");
+                    }
+                });
+            } else {
+                programCanceled();
+                return;
+            }
+        } else {
             runOnUiThread(new Runnable() { // from class: com.example.firstapp.ActivityMain.21
                 @Override // java.lang.Runnable
                 public void run() {
-                    textViewStatus.setText(((Object) textViewStatus.getText()) + "\r\n" + MainActivity.this.getString(R.string.status_cubemoved) + "\r\n");
+                    textViewStatus.setText(((Object) textViewStatus.getText()) + "\r\n" + MainActivity.this.getString(R.string.status_simulation) + "\r\n");
                 }
             });
-        } else {
-            programCanceled();
-            return;
         }
+
     }
 
     public void startSolve() {

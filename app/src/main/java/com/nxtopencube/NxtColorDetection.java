@@ -50,14 +50,14 @@ public class NxtColorDetection {
         options.inPreferredConfig = Bitmap.Config.RGB_565;
         for (int side_index = 0; side_index < 6; side_index++) {
             Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(path) + this.sides[side_index] + ".jpg", options);
+            //Create a writeable version to edit and output for debugging.
+            Bitmap writeable_bm = bitmap.copy(Bitmap.Config.RGB_565, true);
             for (int cubie_index = 0; cubie_index < 9; cubie_index++) {
                 int count = 0;
                 int r = 0;
                 int g = 0;
                 int b = 0;
                 //Scan through a 25x25 pixel square around the points defined in xstart/ystart
-                //TODO - for debugging purposes, can we draw a square on the bitmap showing the detection area?
-                //See commented class at foot of this class for example code.  yet to evalute.
                 for (int x = (this.xstart[cubie_index] - 50) / 4; x < (this.xstart[cubie_index] + 50) / 4; x++) {
                     for (int y = (this.ystart[cubie_index] - 50) / 4; y < (this.ystart[cubie_index] + 50) / 4; y++) {
                         //Keep a running tally of how many pixels we have scanned
@@ -67,6 +67,7 @@ public class NxtColorDetection {
                         r += Color.red(pixel);
                         g += Color.green(pixel);
                         b += Color.blue(pixel);
+                        writeable_bm.setPixel(x,y,Color.BLACK);
                     }
                 }
                 //After the scan, divide the RGB values by the number of pixels scanned, to get an average.
@@ -79,6 +80,13 @@ public class NxtColorDetection {
                 this.colors[side_index][cubie_index][GREEN] = rgb[GREEN];
                 this.colors[side_index][cubie_index][BLUE] = rgb[BLUE];
             }
+            try{// To output the version with the scan area marked in black.
+                FileOutputStream out = new FileOutputStream(String.valueOf(path) + this.sides[side_index] + "e" +".jpg");
+                writeable_bm.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            } catch (FileNotFoundException e) {
+                //Complain about filesystem
+            }
+
             //Memory management stuff?
             if (bitmap != null) {
                 bitmap.recycle();
@@ -502,36 +510,3 @@ public class NxtColorDetection {
 
     }
 }
-
-/*import java.awt.Color;
-import java.awt.Stroke;
-import java.awt.BasicStroke;
-import java.awt.Paint;
-import java.awt.Rectangle;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-import java.io.File;
-
-public class Drawer{
-	public static void main(String[] args) throws Exception{
-		//Create an in memory Image
-		BufferedImage img = new BufferedImage(100, 10, BufferedImage.TYPE_INT_ARGB);
-
-
-		//Grab the graphics object off the image
-		Graphics2D graphics = img.createGraphics();
-
-		Color color = new Color(50,50,50);
-		Stroke stroke = new BasicStroke(1f);
-
-		//graphics.setStroke(stroke);
-		graphics.setPaint(color);
-
-		graphics.fill(new Rectangle(0,0,100,10));
-
-
-		File outputfile = new File("saved.png");
-		ImageIO.write(img, "png", outputfile);
-	}
-}*/
