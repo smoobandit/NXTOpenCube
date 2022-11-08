@@ -471,6 +471,7 @@ public class NxtColorDetection {
     public void appendLog(String text)
     {
         if(this.logging) {
+            Log.d("COLOUR:", text);
             File logFile = new File("sdcard/log.txt");
             if (!logFile.exists())
             {

@@ -13,6 +13,7 @@ V1 November 2022"</string>
     <string name="menutitle">Menu</string>
     <string name="menuitem_init">Initialise</string>
     <string name="menuitem_settings">Settings</string>
+    <string name="menuitem_patterns">Patterns</string>
     <string name="menuitem_manual">Manual control</string>
     <string name="menuitem_quit">Quit</string>
     <string name="status_start">NXT Cube Machine Started.</string>
@@ -25,7 +26,7 @@ V1 November 2022"</string>
     <string name="status_cubesolved">Cube solved:</string>
     <string name="status_cubeerror">Error:</string>
     <string name="status_cubeerrortext">The colors were not recognized correctly.</string>
-    <string name="status_cubemoved">"Rubik's Cube moved."</string>
+    <string name="status_cubemoved">"Rubik's Cube ready."</string>
     <string name="status_finished">Finished.</string>
     <string name="status_canceled">Program aborted.</string>
     <string name="status_stopped">Program stopped.</string>
@@ -59,6 +60,8 @@ Check paired devices and settings."</string>
     <string name="settings_title1">NXT</string>
     <string name="settings_title2">Wait times [ms]</string>
     <string name="settings_title3">Save settings</string>
+    <string name="settings_title4">Patterns:</string>
+    <string name="settings_title5">Save Pattern Choice:</string>
     <string name="settings_labelnxt1">NXT 1:</string>
     <string name="settings_labelnxt2">NXT 2:</string>
     <string name="settings_labelprogram">Program:</string>
@@ -95,4 +98,55 @@ Check paired devices and settings."</string>
     <string name="words_program">Program</string>
     <string name="words_started">started.</string>
     <string name="message_start">The Grippers must be closed and in an exactly vertical orientation.</string>
+
+<!--    Custom Patterns for Solved Cubes:-->
+<!--    We need a name:-->
+    <string name="pattern_pons_asinorum">Pons Asinorum</string>
+    <string name="pattern_pons_superflip">Pons Asinorum with Superflip</string>
+    <string name="pattern_superflip">Superflip</string>
+    <string name="pattern_crosses">Crosses</string>
+    <string name="pattern_slash">Slash</string>
+    <string name="pattern_cube_2">Cube ^2</string>
+    <string name="pattern_cube_3">Cube ^3</string>
+    <string name="pattern_ts">T\'s</string>
+    <string name="pattern_stripes">Stripes</string>
+    <string name="pattern_exchanged_peaks">Exchanged Peaks</string>
+    <string name="pattern_anaconda">Anaconda</string>
+    <string name="pattern_black_mamba">Black Mamba</string>
+    <string name="pattern_python">Python</string>
+    <string name="pattern_swap_centers">Swap Centers</string>
+    <string name="pattern_union_jack">Union Jack</string>
+    <string name="pattern_kilt">Kilt</string>
+    <string name="pattern_conway">Conway\'s Glider</string>
+
+<!--    and a move sequence pair:-->
+    <string name="solution_pons_asinorum">B2 F2 L2 R2 D2 U2</string>
+    <string name="solution_pons_superflip">R B L F D L R\' B2 F D\' U L D\' U R\' D\' F\' R\' U\'</string>
+    <string name="solution_superflip">D\' R2 F\' D2 F2 U2 L\' R D\' R2 B F R\' U2 L\' F2 R\' U2 R\' U\'</string>
+    <string name="solution_crosses">U F B\' L2 U2 L2 F\' B U2 L2 U</string>
+    <string name="solution_slash">R L F B R L F B R L F B</string>
+    <string name="solution_cube_2">F L F U\' R U F2 L2 U\' L\' B D\' B\' L2 U</string>
+    <string name="solution_cube_3">U\' L\' U\' F\' R2 B\' R F U B2 U B\' L U\' F U R F\'</string>
+    <string name="solution_ts">F2 R2 U2 F\' B D2 L2 F B</string>
+    <string name="solution_stripes">F U F R L2 B D\' R D2 L D\' B R2 L F U F</string>
+    <string name="solution_exchanged_peaks">F2 R2 D R2 U D F2 D\' R\' D\' F L2 F\' D R U\'</string>
+    <string name="solution_anaconda">L U B\' U\' R L\' B R\' F B\' D R D\' F\'</string>
+    <string name="solution_black_mamba">R D L F\' R L\' D R\' U D\' B U\' R\' D\'</string>
+    <string name="solution_python">F2 R\' B\' U R\' L F\' L F\' B D\' R B L2</string>
+    <string name="solution_swap_centers">U D\' R L\' F B\' U D\'</string>
+    <string name="solution_union_jack">U F B\' L2 U2 L2 F\' B U2 L2 U</string>
+    <string name="solution_kilt">U\' R2 L2 F2 B2 U\' R L F B\' U F2 D2 R2 L2 F2 U2 F2 U\' F2</string>
+    <string name="solution_conway">D2 R2 F2 R2 U2 B2 D2 F2 L2 U2 R2 U2</string>
+
+    <!--LOTS of patterns here:
+        https://ruwix.com/the-rubiks-cube/rubiks-cube-patterns-algorithms/-->
+
+    <string name="error1">Error 1: There is not exactly one facelet of each colour</string>
+    <string name="error2">Error 2: Not all 12 edges exist exactly once</string>
+    <string name="error3">Error 3: Flip error: One edge has to be flipped</string>
+    <string name="error4">Error 4: Not all corners exist exactly once</string>
+    <string name="error5">Error 5: Twist error: One corner has to be twisted</string>
+    <string name="error6">Error 6: Parity error: Two corners or two edges have to be exchanged</string>
+    <string name="error7">Error 7: No solution exists for the given maxDepth</string>
+    <string name="error8">Error 8: Timeout, no solution within given time</string>
 </resources>

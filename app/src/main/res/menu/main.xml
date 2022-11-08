@@ -6,6 +6,7 @@
         <menu>
             <item android:id="@+id/menuitem_init" android:title="@string/menuitem_init"/>
             <item android:id="@+id/menuitem_settings" android:title="@string/menuitem_settings"/>
+            <item android:id="@+id/menuitem_patterns" android:title="@string/menuitem_patterns"/>
             <item android:id="@+id/menuitem_manual" android:title="@string/menuitem_manual"/>
             <item android:id="@+id/menuitem_quit" android:title="@string/menuitem_quit"/>
         </menu>

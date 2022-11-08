@@ -28,4 +28,5 @@ public class NxtMain {
     public static boolean runtime = false;
     public static String picpath = "/sdcard/";
     public static int lifterStatus = 0;
+    public static String pattern;
 }
