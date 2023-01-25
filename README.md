@@ -11,7 +11,7 @@ All original source is the work of Hitchhiker (a.k.a. Manfred Matuszek).
 
 The NxtCubeMachineCode.zip file is Hitchhiker's original source archive.
 
-SOme other interesting projects on GitHub are:
+Some other interesting projects on GitHub are:
 
 https://github.com/amarghosh/rubiks-cube
 
